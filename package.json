@@ -1,32 +1,41 @@
 {
   "name": "manimani-site",
-  "version": "1.0.0",
-  "description": "Next version my portfolio website. Now developing...",
-  "dependencies": {
-    "chart.js": "^2.9.3",
-    "firebase": "^7.8.1",
-    "vue-router": "^3.1.5"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "vue-template-compiler": "^2.6.11"
-  },
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "vue-cli-service lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maniCreate/manimani-site.git"
+  "dependencies": {
+    "core-js": "^3.4.4",
+    "vue": "^2.6.10"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maniCreate/manimani-site/issues"
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
   },
-  "homepage": "https://github.com/maniCreate/manimani-site#readme"
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
