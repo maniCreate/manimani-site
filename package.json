@@ -1,0 +1,32 @@
+{
+  "name": "manimani-site",
+  "version": "1.0.0",
+  "description": "Next version my portfolio website. Now developing...",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "firebase": "^7.8.1",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maniCreate/manimani-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maniCreate/manimani-site/issues"
+  },
+  "homepage": "https://github.com/maniCreate/manimani-site#readme"
+}
