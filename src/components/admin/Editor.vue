@@ -6,15 +6,19 @@
         <!-- <img src="../../assets/breath-cms-logo.png" alt=""> -->
       </div>
       <div id="profile">
-        <img src="../../assets/profile-light.png" alt="">
+        <img src="../../assets/profile-light.png" alt />
         <p id="user-name">Shunsuke Nakao</p>
-        <button @click="logOut"><i class="fas fa-sign-out-alt"></i>Sign out</button>
+        <button @click="logOut">
+          <i class="fas fa-sign-out-alt"></i>Sign out
+        </button>
       </div>
       <div class="edit-menu">
         <p>Main</p>
         <ul>
           <li>
-            <router-link to="/editor/dashboard"><i class="fas fa-poll"></i>Dashboard</router-link>
+            <router-link to="/editor/dashboard">
+              <i class="fas fa-poll"></i>Dashboard
+            </router-link>
           </li>
         </ul>
       </div>
@@ -22,16 +26,24 @@
         <p>Editor</p>
         <ul>
           <li>
-            <router-link to="/editor/profile"><i class="fas fa-user-circle"></i>Profile</router-link>
+            <router-link to="/editor/profile">
+              <i class="fas fa-user-circle"></i>Profile
+            </router-link>
           </li>
           <li>
-            <router-link to="/editor/experiences"><i class="fas fa-code-branch"></i>Experience</router-link>
+            <router-link to="/editor/experiences">
+              <i class="fas fa-code-branch"></i>Experience
+            </router-link>
           </li>
           <li>
-            <router-link to="/editor/works"><i class="fas fa-paperclip"></i>Works</router-link>
+            <router-link to="/editor/works">
+              <i class="fas fa-paperclip"></i>Works
+            </router-link>
           </li>
           <li>
-            <router-link to="/editor/settings"><i class="fas fa-cog"></i>Setting</router-link>
+            <router-link to="/editor/settings">
+              <i class="fas fa-cog"></i>Setting
+            </router-link>
           </li>
         </ul>
       </div>
@@ -39,11 +51,13 @@
     <div id="editor-right">
       <div id="header">
         <div id="header-left">
-          <button id="notification"><i class="fas fa-bell"></i></button>
+          <button id="notification">
+            <i class="fas fa-bell"></i>
+          </button>
           <button id="editing-site">manimani-site</button>
         </div>
         <div id="header-right">
-          <input id="search-bar" type="text">
+          <input id="search-bar" type="text" />
         </div>
       </div>
       <div id="editor-content">
@@ -54,7 +68,7 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from "firebase";
 
 export default {
   name: "editor",
@@ -64,8 +78,8 @@ export default {
         .auth()
         .signOut()
         .then(function() {
-          this.$router.push("/signin")
-        })
+          this.$router.push("/signin");
+        });
     }
   },
   props: {
@@ -95,7 +109,7 @@ button {
   min-height: 100vh;
   display: flex;
   font-family: milibus;
-  background: rgba(25 , 26, 36, 1);
+  background: rgba(25, 26, 36, 1);
 }
 
 #editor-left {
@@ -144,14 +158,22 @@ button {
   border-radius: 3px;
   margin-top: 25px;
   padding: 12px 25px;
-  background: rgba(255,87,185, 1);
-  background: linear-gradient(90deg, rgba(255,87,185,1) 0%, rgba(167,4,253,1) 100%);
+  background: rgba(255, 87, 185, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 87, 185, 1) 0%,
+    rgba(167, 4, 253, 1) 100%
+  );
   transition: all 0.3s;
+}
+
+#editor-left .edit-menu {
+  text-align: left;
 }
 
 #editor-left .edit-menu > p {
   margin: 0;
-  padding: 10px 25px;
+  padding: 10px 35px;
   font-size: 0.75em;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.4);
@@ -168,7 +190,7 @@ button {
 #editor-left .edit-menu ul li a {
   position: relative;
   display: block;
-  padding: 12px 25px;
+  padding: 12px 35px;
   font-size: 0.9em;
   font-weight: 100;
   text-decoration: none;
@@ -190,7 +212,6 @@ button {
   transition: all 0.3s;
 }
 
-
 #editor-right {
   width: 100%;
   height: 100%;
@@ -198,14 +219,16 @@ button {
 }
 
 #editor-right #header {
-  width: 100%;
+  position: fixed;
+  z-index: 100;
+  width: calc(100% - 220px);
   height: 50px;
   padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgb(25,113,205);
+  background: rgb(25, 113, 205);
 }
 
 #editor-right #header #header-left #notification {
@@ -228,7 +251,7 @@ button {
 }
 
 #editor-right #editor-content {
-  margin: 30px;
+  margin: 80px 30px 30px 30px;
   overflow: scroll;
 }
 
@@ -238,6 +261,5 @@ button {
   border-radius: 5px;
   background: rgba(25, 26, 36, 1);
 }
-
 </style>
 

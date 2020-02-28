@@ -16,9 +16,9 @@
     </section>
     <section id="device-analytics">
       <div class="clip-board">
-				<i class="fas fa-mobile-alt"></i>
+        <i class="fas fa-mobile-alt"></i>
         <h3>Device Analytics</h3>
-				<p>Febrary 2020</p>
+        <p>Febrary 2020</p>
       </div>
       <p id="increased-device">5%</p>
       <div id="device-inner">
@@ -30,36 +30,36 @@
         <i class="fas fa-chart-pie"></i>User Analytics
       </h3>
       <div id="user-sex-inner">
-				<canvas id="user-sex-chart"></canvas>
-			</div>
+        <canvas id="user-sex-chart"></canvas>
+      </div>
       <div id="user-type-inner">
-				<canvas id="user-type-chart"></canvas>
-			</div>
+        <canvas id="user-type-chart"></canvas>
+      </div>
     </section>
     <section id="page-traffics">
       <h3>
         <i class="fas fa-map-signs"></i>Page Traffics
       </h3>
     </section>
-		<section id="recent-comments">
+    <section id="recent-comments">
       <h3>
         <i class="fas fa-comments"></i>Recent Comments
       </h3>
-			<div class="section-inner">
-				<article class="share-comment">
-					<div class="user-img">
-						<img src="../../../assets/profile-light.png" alt="">
-					</div>
-					<div class="share-data">
-						<h4>UserName</h4>
-						<p>textetxtetxtetxtetxtetx</p>
-						<ul>
-							<li class="comment-twitter">Twitter</li>
-							<li>PM18:09 Feb 2020</li>
-						</ul>
-					</div>
-				</article>
-			</div>
+      <div class="section-inner">
+        <article class="share-comment">
+          <div class="user-img">
+            <img src="../../../assets/profile-light.png" alt />
+          </div>
+          <div class="share-data">
+            <h4>UserName</h4>
+            <p>textetxtetxtetxtetxtetx</p>
+            <ul>
+              <li class="comment-twitter">Twitter</li>
+              <li>PM18:09 Feb 2020</li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </section>
     <section id="develop-activities">
       <h3>
@@ -196,9 +196,9 @@ const drawLinearChart = function() {
       },
       // Responsives
       responsive: true,
-			maintainAspectRatio: false,
-			// Animations
-			animation: {},
+      maintainAspectRatio: false,
+      // Animations
+      animation: {},
       // Graph Grids & Labels Style
       scales: {
         xAxes: [
@@ -235,32 +235,23 @@ const drawLinearChart = function() {
 };
 
 const drawDonutChart = function() {
-	var ctx = document.getElementById("user-sex-chart").getContext("2d");
+  var ctx = document.getElementById("user-sex-chart").getContext("2d");
 
-	new chart(ctx, {
-		type: "doughnut",
-		data: {
-			labels: [
-				"Male",
-				"Female"
-			],
-			datasets: [
-				{
-					data: [30, 20],
-					borderWidth: 5,
-					borderColor: [
-						"rgba(47, 49, 68, 1)",
-						"rgba(47, 49, 68, 1)"
-					],
-					backgroundColor: [
-						"rgba(74, 160, 255, 1)",
-						"rgba(255, 87, 185, 1)"
-					]
-				}
-			]
-		},
-		options: {
-			legend: {
+  new chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: ["Male", "Female"],
+      datasets: [
+        {
+          data: [30, 20],
+          borderWidth: 5,
+          borderColor: ["rgba(47, 49, 68, 1)", "rgba(47, 49, 68, 1)"],
+          backgroundColor: ["rgba(74, 160, 255, 1)", "rgba(255, 87, 185, 1)"]
+        }
+      ]
+    },
+    options: {
+      legend: {
         display: true,
         labels: {
           boxWidth: 8,
@@ -269,25 +260,48 @@ const drawDonutChart = function() {
           fontFamily: "milibus"
         }
       },
-			// Responsives
+      // Responsives
       responsive: true,
-      maintainAspectRatio: false,
-		},
-	})
+      maintainAspectRatio: false
+    }
+  });
 };
 
 export default {
   name: "Dashboard",
+  data: function() {
+    return {
+      show: true
+    };
+  },
   mounted: function() {
     drawLinearChart();
-		drawCircleChart();
-		drawDonutChart();
+    drawCircleChart();
+    drawDonutChart();
   }
 };
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+@for $i from 1 through 7 {
+  .dashboard section:nth-child(#{$i}) {
+    -webkit-animation: fade-in 0.8s forwards;
+    animation: fade-in 0.8s forwards;
+    animation-delay: #{200ms * $i};
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -318,9 +332,11 @@ button {
 }
 
 .dashboard section {
+  opacity: 0;
   margin-bottom: 30px;
   padding: 10px 30px 30px 30px;
   border-radius: 5px;
+  text-align: left;
   background: rgba(35, 37, 51, 1);
 }
 
@@ -329,8 +345,8 @@ button {
   justify-content: center;
   align-content: flex-start;
   flex-wrap: wrap;
-	flex-direction: column;
-	margin: 15px 0;
+  flex-direction: column;
+  margin: 15px 0;
   width: 100%;
   height: 50px;
 }
@@ -392,7 +408,6 @@ button {
   height: 200px;
 }
 
-
 .dashboard #recent-comments,
 .dashboard #develop-activities {
   width: calc(50% - 20px);
@@ -400,69 +415,68 @@ button {
 }
 
 .dashboard #user-analytics {
-	width: calc(30% - 20px);
+  width: calc(30% - 20px);
   height: 500px;
 }
 
 .dashboard #page-traffics {
-	width: calc(70% - 20px);
+  width: calc(70% - 20px);
   height: 500px;
 }
 
 #user-analytics #user-sex-inner {
-	width: 100%;
+  width: 100%;
   height: 50%;
 }
 
 #recent-comments .share-comment {
-	display: flex;
-	padding: 20px 0;
-	width: 100%;
-	height: 100%;
-	border-top: 1px solid rgba(255, 255, 255, 0.2);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .share-comment .user-img {
-	margin-right: 15px;
+  margin-right: 15px;
 }
 
 .share-comment .user-img img {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .share-comment .share-data {
-	display: block;
-	width: 100%;
-	height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .share-comment .share-data h4 {
-	margin: 0;
+  margin: 0;
 }
 
 .share-comment .share-data p {
-	font-size: 0.8em;
-	color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .share-comment .share-data ul {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	font-size: 0.8em;
-	font-weight: 100;
-	color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 0.8em;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .comment-twitter {
-	padding: 2px 20px;
-	border-radius: 2px;
-	color: rgba(0, 0, 0, 0.6);
-	background: rgba(255, 255, 255, 1);
+  padding: 2px 20px;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 1);
 }
-
 </style>

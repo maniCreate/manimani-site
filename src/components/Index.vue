@@ -33,8 +33,12 @@
             <p>Software Engineer, iOS /AR</p>
             <h3 id="name">mani / Shunsuke Nakao</h3>
             <ul>
-              <li><i class="fas fa-university"></i>Fukuoka Univ.</li>
-              <li><i class="fas fa-map-marker-alt"></i>Fukuoka, Japan</li>
+              <li>
+                <i class="fas fa-university"></i>Fukuoka Univ.
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>Fukuoka, Japan
+              </li>
             </ul>
             <div id="skills">
               <h4>Advanced Skills</h4>
@@ -175,7 +179,9 @@
             <div class="work-description">
               <p>Heart shaped lifespan timer</p>
               <h3 class="work-title">Limit</h3>
-              <p class="overview">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
+              <p
+                class="overview"
+              >テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
               <div class="reference">
                 <div class="tags">
                   <ul>
@@ -292,66 +298,16 @@
       <section id="article">
         <h2 class="section-title-b">Article</h2>
         <div id="posts">
-          <article class="post">
-            <img src="./../assets/noimage.png" />
-            <h3>【Swift5】TableViewの再利用による...【iOS】</h3>
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
-            <ul>
-              <li>2019.2.19</li>
-              <li>manilabo.net</li>
-            </ul>
-            <a href="#"></a>
-          </article>
-          <article class="post">
-            <img src="./../assets/noimage.png" />
-            <h3>【Swift5】TableViewの再利用による...【iOS】</h3>
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
-            <ul>
-              <li>2019.2.19</li>
-              <li>manilabo.net</li>
-            </ul>
-            <a href="#"></a>
-          </article>
-          <article class="post">
-            <img src="./../assets/noimage.png" />
-            <h3>【Swift5】TableViewの再利用による...【iOS】</h3>
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
-            <ul>
-              <li>2019.2.19</li>
-              <li>manilabo.net</li>
-            </ul>
-            <a href="#"></a>
-          </article>
-          <article class="post">
-            <img src="./../assets/noimage.png" />
-            <h3>【Swift5】TableViewの再利用による...【iOS】</h3>
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
-            <ul>
-              <li>2019.2.19</li>
-              <li>manilabo.net</li>
-            </ul>
-            <a href="#"></a>
-          </article>
-          <article class="post">
-            <img src="./../assets/noimage.png" />
-            <h3>【Swift5】TableViewの再利用による...【iOS】</h3>
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
-            <ul>
-              <li>2019.2.19</li>
-              <li>manilabo.net</li>
-            </ul>
-            <a href="#"></a>
-          </article>
-          <article class="post">
-            <img src="./../assets/noimage.png" />
-            <h3>【Swift5】TableViewの再利用による...【iOS】</h3>
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...</p>
-            <ul>
-              <li>2019.2.19</li>
-              <li>manilabo.net</li>
-            </ul>
-            <a href="#"></a>
-          </article>
+          <Post
+            v-for="(post, key) in postsData"
+            :key="key"
+            :title="post.title"
+            :body="post.body"
+            :update="post.update"
+            :ref_site="post.refSite"
+            :site_url="post.siteUrl"
+            :image_url="post.imageUrl"
+          ></Post>
         </div>
         <div class="linker">
           <a href="#">See more</a>
@@ -383,19 +339,60 @@
 // import Skills from './views/Skills'
 // import Experience from './views/Experience'
 // import Works from './views/Works'
-// import Posts from './views/Posts'
+import Post from "@/components/views/Post.vue";
 
 export default {
   name: "index",
+  components: {
+    // Profile,
+    // Skills,
+    // Experience,
+    // Works,
+    Post
+  },
   data: function() {
     return {
+      profileData: {},
+      careerData: [],
+      mainWorksData: [],
+      otherWorksData: [],
+      postsData: [
+        {
+          title: "【Swift5】TableViewの再利用による...【iOS】",
+          body:
+            "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...",
+          update: "2019.2.19",
+          refSite: "Qiita",
+          siteUrl: "url",
+          imageUrl: "../assets/noimage.png"
+        },
+        {
+          title: "【Swift5】TableViewの再利用による...【iOS】",
+          body:
+            "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...",
+          update: "2019.2.19",
+          refSite: "Qiita",
+          siteUrl: "url",
+          imageUrl: "../assets/noimage.png"
+        },
+        {
+          title: "【Swift5】TableViewの再利用による...【iOS】",
+          body:
+            "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ...",
+          update: "2019.2.19",
+          refSite: "Qiita",
+          siteUrl: "url",
+          imageUrl: "../assets/noimage.png"
+        }
+      ],
+      externalLinks: [],
       headerMenu: [
         '<a href="#about">About</a>',
         '<a href="#experience">Experience</a>',
         '<a href="#work">Work</a>',
         '<a href="#article">Article</a>',
         '<a href="#contact">Contact</a>',
-        '<div id="language"><button type="button">JP</button><button type="button">EN</button></div>',
+        '<div id="language"><button type="button">JP</button><button type="button">EN</button></div>'
       ],
       snsList: [
         '<a href="#"><i class="fab fa-linkedin-in"></i></a>',
@@ -404,14 +401,7 @@ export default {
         '<a href="#"><i class="fas fa-search"></i></a>',
         '<a href="#"><i class="fas fa-pen-nib"></i></a>'
       ]
-    }
-  },
-  components: {
-    // Profile,
-    // Skills,
-    // Experience,
-    // Works,
-    // Posts
+    };
   }
 };
 </script>
@@ -506,7 +496,6 @@ header {
   margin: 0 30px;
   font-size: 1em;
 }
-
 
 #menu-right >>> ul li a {
   text-decoration: none;
@@ -686,7 +675,6 @@ section {
   margin-right: 50px;
 }
 
-
 #profile-image {
   position: relative;
 }
@@ -791,8 +779,11 @@ section {
 }
 
 #career-list ul {
+  width: 180px;
+  height: 100%;
   margin: 0;
-  border-left: 3px solid lightgray;
+  border-left: 2px solid lightgray;
+  overflow: scroll;
 }
 
 #career-list ul li {
@@ -803,7 +794,7 @@ section {
 }
 
 #career-list ul li:hover {
-  transform: translateX(-15px) scale(1.05);
+  transform: translateX(15px) scale(1.05);
   background: #1a1a1a;
   color: #fff;
   transition: all 0.3s;
@@ -1034,9 +1025,6 @@ section {
   background: #fff;
 }
 
-#article {
-}
-
 #posts {
   display: flex;
   justify-content: space-around;
@@ -1133,6 +1121,5 @@ footer {
 footer p {
   color: darkgray;
 }
-
 </style>
 

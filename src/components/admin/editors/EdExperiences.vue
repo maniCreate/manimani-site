@@ -1,11 +1,11 @@
 <template>
   <div class="ed-experiences">
     <section id="edit-experiences">
-      <h3><i class="fas fa-code-branch"></i>Experiences</h3>
+      <h3>
+        <i class="fas fa-code-branch"></i>Experiences
+      </h3>
       <div id="content" class="flex-box">
-        <button id="new-post">
-          ＋
-        </button>
+        <button id="new-post">＋</button>
         <article class="career">
           <h4 class="campany">DMM.com LLC</h4>
           <p class="term">Feb,2019 ~ Mar, 2019</p>
@@ -46,7 +46,26 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+@for $i from 1 through 1 {
+  .ed-experiences section:nth-child(#{$i}) {
+    -webkit-animation: fade-in 0.8s forwards;
+    animation: fade-in 0.8s forwards;
+    animation-delay: #{200ms * $i};
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -83,9 +102,11 @@ button {
 }
 
 .ed-experiences section {
+  opacity: 0;
   margin: 20px 0;
   padding: 30px;
   border-radius: 5px;
+  text-align: left;
   background: rgba(47, 49, 68, 1);
 }
 
@@ -103,11 +124,11 @@ button {
 }
 
 #edit-experiences #content > * {
-  width: calc(100%/4 - 30px);
+  width: calc(100% / 4 - 30px);
   height: 300px;
   margin: 15px;
   padding: 15px;
-  background: rgba(255,255,255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 #edit-experiences #content #new-post {
@@ -172,6 +193,4 @@ button {
   color: rgba(255, 255, 255, 0.9);
   background: #42b983;
 }
-
-
 </style>

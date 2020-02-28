@@ -10,7 +10,7 @@
           <button class="add-works">＋</button>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt="">
+              <img src="../../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -25,7 +25,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt="">
+              <img src="../../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -40,7 +40,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt="">
+              <img src="../../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -59,7 +59,7 @@
           <button class="add-works">＋</button>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt="">
+              <img src="../../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -74,7 +74,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt="">
+              <img src="../../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -89,7 +89,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt="">
+              <img src="../../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -115,7 +115,26 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+@for $i from 1 through 1 {
+  .ed-works section:nth-child(#{$i}) {
+    -webkit-animation: fade-in 0.8s forwards;
+    animation: fade-in 0.8s forwards;
+    animation-delay: #{200ms * $i};
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -153,11 +172,13 @@ button {
 }
 
 .ed-works section {
+  opacity: 0;
   width: 100%;
   height: 100%;
   margin: 20px 0;
   padding: 30px;
   border-radius: 5px;
+  text-align: left;
   background: rgba(47, 49, 68, 1);
 }
 
@@ -174,7 +195,7 @@ button {
 }
 
 #edit-works #content > div {
-  width: calc(100%/2 - 30px);
+  width: calc(100% / 2 - 30px);
   height: 100%;
 }
 
@@ -215,7 +236,7 @@ button {
 }
 
 .work .work-data .work-subtitle {
-  margin:  0 0 10px 0;
+  margin: 0 0 10px 0;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -236,13 +257,11 @@ button {
   margin-right: 5px;
 }
 
-
 .work .work-edit {
   width: 80px;
   line-height: 30px;
-  color:rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   background: #42b983;
   border-radius: 3px;
 }
-
 </style>

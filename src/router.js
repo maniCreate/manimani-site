@@ -84,7 +84,7 @@ router.beforeEach((to, from, next) => {
       if (user) {
         next()
       } else {
-        next('/admin')
+        next('/signin')
       }
     })
   } else {
