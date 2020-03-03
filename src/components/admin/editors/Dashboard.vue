@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard">
-    <section id="detail-analytics">
+    <section id="summary">
+      <h3>
+        <i class="fas fa-columns"></i>Summary
+      </h3>
       <div id class></div>
       <div id class></div>
       <div id class></div>
@@ -403,7 +406,7 @@ button {
   height: 60%;
 }
 
-.dashboard #detail-analytics {
+.dashboard #summary {
   width: 100%;
   height: 200px;
 }

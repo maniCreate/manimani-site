@@ -1,6 +1,6 @@
 <template>
   <article class="post">
-    <img src="../../assets/noimage.png" />
+    <img :src="this.image_url" />
     <h3>{{ this.title }}</h3>
     <p>{{ this.body }}</p>
     <ul>

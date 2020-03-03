@@ -11,6 +11,8 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.4.4",
     "firebase": "^7.9.1",
+    "firebase-admin": "^8.9.2",
+    "firebase-tools": "^7.14.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.6"
   },
@@ -34,7 +36,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
