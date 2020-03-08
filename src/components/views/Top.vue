@@ -1,6 +1,15 @@
 <template>
   <section id="top">
-    <h2>manimani.site</h2>
+    <div id="left-content">
+      <h2>manimani.site</h2>
+      <p>
+        Hi ! I am a Software Engineer in Tokyo, Japan, specializing in
+        developing Mobile App ( iOS/Android ) and AR App.
+        Also designing Interactive User Interface and User Experiences occasionally.
+      </p>
+      <a href="#" class="contact-button">GET IN TOUCH!</a>
+    </div>
+    <div id="right-content"></div>
   </section>
 </template>
 
@@ -14,19 +23,45 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style lang="scss" scoped>
+#top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 100%;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+#left-content {
+  width: 520px;
+  text-align: left;
 }
-li {
+
+#left-content h2 {
+  position: relative;
   display: inline-block;
-  margin: 0 10px;
+  font-size: 5em;
+  line-height: 1.5em;
 }
-a {
-  color: #42b983;
+
+#left-content h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  display: inline-block;
+  width: 80%;
+  height: 6px;
+  background: rgba(61, 219, 255, 1);
+}
+
+#left-content p {
+  margin: 40px 0;
+  font-size: 1.1em;
+}
+
+#right-content {
+  width: calc(100% - 600px);
+  height: 600px;
+  background: gray;
 }
 </style>

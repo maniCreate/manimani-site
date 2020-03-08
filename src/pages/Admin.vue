@@ -2,24 +2,12 @@
   <transition appear>
     <div v-if="show" class="admin">
       <section id="login">
-        <img src="./../../assets/breath-logo.png" alt="" />
+        <img src="../assets/breath-logo.png" alt />
         <h2>Sign In</h2>
         <p>管理者アカウントを使用します。</p>
         <div id="form">
-          <input
-            v-model="username"
-            type="username"
-            name=""
-            id="id"
-            placeholder="UserName"
-          />
-          <input
-            v-model="password"
-            type="password"
-            name=""
-            id="password"
-            placeholder="Password"
-          />
+          <input v-model="username" type="username" name id="id" placeholder="UserName" />
+          <input v-model="password" type="password" name id="password" placeholder="Password" />
         </div>
         <button @click="signIn" id="submit">Sign in</button>
       </section>
@@ -46,12 +34,12 @@ export default {
         .signInWithEmailAndPassword(this.username, this.password)
         .then(
           () => {
-            this.$router.push("/editor")
+            this.$router.push("/editor");
           },
           err => {
-            alert(err.message)
+            alert(err.message);
           }
-        )
+        );
     }
   },
   props: {

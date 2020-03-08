@@ -10,7 +10,7 @@
           <button class="add-works">＋</button>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt />
+              <img src="../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -25,7 +25,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt />
+              <img src="../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -40,7 +40,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt />
+              <img src="../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -59,7 +59,7 @@
           <button class="add-works">＋</button>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt />
+              <img src="../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -74,7 +74,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt />
+              <img src="../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>
@@ -89,7 +89,7 @@
           </article>
           <article class="work">
             <div class="work-image">
-              <img src="../../../assets/noimage.png" alt />
+              <img src="../../assets/noimage.png" alt />
             </div>
             <div class="work-data">
               <p class="work-subtitle">Heat Limit LifeSpan Counter</p>

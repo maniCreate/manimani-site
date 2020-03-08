@@ -1,3 +1,4 @@
+<!-- Mark: Article.vueへReplace -->
 <template>
   <article class="post">
     <img :src="this.image_url" />
@@ -26,31 +27,17 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  font-family: milibus;
-  display: inline-block;
-}
-a {
-  color: #42b983;
-}
-
+<style lang="scss" scoped>
 .post {
   position: relative;
   width: 270px;
   height: 100%;
-  margin: 20px 0;
+  margin-bottom: 30px;
   padding: 10px;
-  background: #fff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(53, 60, 72, 1);
+  box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.75);
   text-align: left;
+  opacity: 0;
   transition: all 0.3s;
 }
 
@@ -83,7 +70,6 @@ p {
 }
 
 .post p {
-  color: #999;
   text-align: left;
   line-height: 2.2em;
   font-size: 0.5em;
@@ -94,6 +80,6 @@ p {
   justify-content: space-between;
   margin: 0;
   font-size: 0.8em;
-  color: gray;
+  color: rgba(61, 219, 255, 1);
 }
 </style>

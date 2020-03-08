@@ -51,7 +51,7 @@
       <div class="section-inner">
         <article class="share-comment">
           <div class="user-img">
-            <img src="../../../assets/profile-light.png" alt />
+            <img src="../../assets/profile-light.png" alt />
           </div>
           <div class="share-data">
             <h4>UserName</h4>

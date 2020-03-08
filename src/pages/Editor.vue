@@ -6,7 +6,7 @@
         <!-- <img src="../../assets/breath-cms-logo.png" alt=""> -->
       </div>
       <div id="profile">
-        <img src="../../assets/profile-light.png" alt />
+        <img src="../assets/profile-light.png" alt />
         <p id="user-name">Shunsuke Nakao</p>
         <button @click="logOut">
           <i class="fas fa-sign-out-alt"></i>Sign out

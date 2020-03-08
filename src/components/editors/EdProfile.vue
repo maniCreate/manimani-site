@@ -9,11 +9,11 @@
         <div id="profile-images">
           <p>Main Image</p>
           <p id="main-image" class="hover-image">
-            <img src="../../../assets/noimage.png" alt />
+            <img src="../../assets/noimage.png" alt />
           </p>
           <p>Sub Image</p>
           <p id="sub-image" class="hover-image">
-            <img src="../../../assets/apple.jpg" alt />
+            <img src="../../assets/apple.jpg" alt />
           </p>
         </div>
         <div id="profile-datas">

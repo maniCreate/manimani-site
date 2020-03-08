@@ -1,5 +1,32 @@
 <template>
-  <article class="main-work">
+  <article v-if="this.order % 2 == 0" class="main-work" >
+    <div class="work-image">
+      <img :src="this.workImageUrl" />
+    </div>
+    <div class="work-description">
+      <p>{{ this.sub_title }}</p>
+      <h3 class="work-title">{{ this.title }}</h3>
+      <p class="overview">{{ this.description }}</p>
+      <div class="reference">
+        <div class="tags">
+          <ul>
+            <li v-for="(tag, key) in this.tags" :key="key">{{ tag }}</li>
+          </ul>
+        </div>
+        <div class="extarnal-link">
+          <ul>
+            <li>
+              <i class="fab fa-github"></i>
+            </li>
+            <li>
+              <i class="fab fa-app-store"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article  v-else class="main-work main-work-odds">
     <div class="work-image">
       <img src="./../../assets/noimage.png" />
     </div>
@@ -36,7 +63,15 @@
 export default {
   name: "MainWork",
   props: {
-    msg: String
+    order: Number,
+    title: String,
+    sub_title: String,
+    workImageUrl: String,
+    description: String,
+    tags: Array,
+    github_url: String,
+    appstore_url: String,
+    external_url: String,
   }
 };
 </script>
@@ -126,19 +161,6 @@ a {
   line-height: 1.9em;
 }
 
-.main-work:nth-child(2) {
-  flex-direction: row-reverse;
-}
-
-.main-work:nth-child(2) .work-image {
-  margin-right: 0;
-  margin-left: 50px;
-}
-
-.main-work:nth-child(2) .overview {
-  transform: translateX(0px);
-}
-
 .reference {
   display: flex;
   justify-content: space-between;
@@ -166,5 +188,19 @@ a {
 .reference > .extarnal-link > ul > li {
   margin-left: 20px;
   font-size: 1.4em;
+}
+
+
+.main-work-odds {
+  flex-direction: row-reverse;
+}
+
+.main-work-odds .work-image {
+  margin-right: 0;
+  margin-left: 50px;
+}
+
+.main-work-odds .overview {
+  transform: translateX(0px);
 }
 </style>
