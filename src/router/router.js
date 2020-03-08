@@ -14,6 +14,8 @@ import work from '@/components/views/Work'
 import article from '@/components/views/Article'
 import contact from '@/components/views/Contact'
 
+import notFound from '@/components/views/NotFound'
+
 import dashboard from '@/components/editors/Dashboard'
 import ed_experiences from '@/components/editors/EdExperiences'
 import ed_profile from '@/components/editors/EdProfile'
@@ -59,6 +61,12 @@ const router = new Router({
           path: 'contact',
           name: 'contact',
           component: contact
+        },
+        {
+          // MARK: 以下 signin/editorまでリダイレクトされてしまう
+          path: '*',
+          name: 'notFound',
+          component: notFound
         },
       ]
     },
