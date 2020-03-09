@@ -1,40 +1,42 @@
 <template>
   <section id="profile">
-    <div id="profile-left">
-      <div id="profile-image">
-        <img :src="this.profileData.mainImageUrl" />
-        <img :src="this.profileData.subImageUrl" />
+    <h2 class="content-title">01. Profile</h2>
+    <div id="profile-content">
+      <div id="profile-left">
+        <div id="profile-image">
+          <img :src="this.profileData.mainImageUrl" />
+          <img :src="this.profileData.subImageUrl" />
+        </div>
+        <div class="linker">
+          <a class="sub-linker" :href="this.profileData.resumeUrl">RESUME</a>
+        </div>
       </div>
-      <div class="linker">
-        <a class="sub-linker" :href="this.profileData.resumeUrl">RESUME</a>
-      </div>
-    </div>
-    <div id="profile-right">
-      <h2 class="content-title">01. Profile</h2>
-      <p id="position">{{ this.profileData.position }}</p>
-      <h3 id="name">{{ this.profileData.name }}</h3>
-      <ul>
-        <li>
-          <i class="fas fa-university"></i>
-          {{ this.profileData.organization }}
-        </li>
-        <li>
-          <i class="fas fa-map-marker-alt"></i>
-          {{ this.profileData.location }}
-        </li>
-      </ul>
-      <div id="skills">
-        <!-- <h4>Programming Language
+      <div id="profile-right">
+        <p id="position">{{ this.profileData.position }}</p>
+        <h3 id="name">{{ this.profileData.name }}</h3>
+        <ul>
+          <li>
+            <i class="fas fa-university"></i>
+            {{ this.profileData.organization }}
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            {{ this.profileData.location }}
+          </li>
+        </ul>
+        <div id="skills">
+          <!-- <h4>Programming Language
           <button>
             <i class="fas fa-chevron-circle-down"></i>
           </button>
-        </h4>-->
-        <ul>
-          <li v-for="(skill, key) in this.profileData.skills" :key="key">
-            <span class="skill-name">{{ skill.name }}</span>
-            <span class="skill-level">{{ skill.level }}</span>
-          </li>
-        </ul>
+          </h4>-->
+          <ul>
+            <li v-for="(skill, key) in this.profileData.skills" :key="key">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-level">{{ skill.level }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -49,7 +51,7 @@ export default {
         mainImageUrl: require("../..//assets/profile-light.png"),
         subImageUrl: require("../../assets/apple.jpg"),
         resumeUrl: "",
-        name: "mani / Shunsuke Nakao",
+        name: "Shunsuke Nakao",
         position: "Software Engineer iOS/AR",
         organization: "Fukuoka University",
         location: "Fukuoka, Japan",
@@ -95,11 +97,10 @@ export default {
   opacity: 0;
 }
 
-#profile {
+#profile-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px 0;
 }
 
 #profile-left {

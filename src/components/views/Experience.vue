@@ -95,11 +95,6 @@ export default {
   opacity: 0;
 }
 
-#experience h2.content-title:before {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 #career {
   display: flex;
   justify-content: center;

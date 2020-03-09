@@ -24,7 +24,9 @@
             <router-link to="/contact">Contact</router-link>
           </li>
           <li>
-            <button></button>
+            <button id="setting">
+              <i class="fas fa-cog"></i>
+            </button>
           </li>
         </ul>
       </div>
@@ -32,27 +34,27 @@
     <div id="sns-buttons">
       <ul>
         <li>
-          <a href="#">
+          <a href="#" id="linkedin">
             <i class="fab fa-linkedin-in"></i>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" id="twitter">
             <i class="fab fa-twitter"></i>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" id="github">
             <i class="fab fa-github"></i>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" id="qiita">
             <i class="fas fa-search"></i>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" id="blog">
             <i class="fas fa-pen-nib"></i>
           </a>
         </li>
@@ -60,40 +62,6 @@
     </div>
     <div id="container">
       <router-view></router-view>
-      <!-- <section id="work">
-        <h2 class="section-title-w">Work</h2>
-        <div id="main-works">
-          <MainWork
-            v-for="(work, index) in mainWorkDataList"
-            :key="work.name"
-            :order="index"
-            :title="work.title"
-            :sub_title="work.sub_title"
-            :workImageUrl="work.workImageUrl"
-            :description="work.description"
-            :tags="work.tags"
-            :github_url="work.github_url"
-            :appstore_url="work.appstore_url"
-            :external_url="work.external_url"
-          ></MainWork>
-        </div>
-        <div id="other-projects">
-          <h3 class="section-title-w sub-title">Other Projects</h3>
-          <OtherProject
-            v-for="(project, key) in otherProjectDataList"
-            :key="key"
-            :title="project.title"
-            :sub_title="project.sub_title"
-            :tags="project.tags"
-            :github_url="project.github_url"
-            :appstore_url="project.appstore_url"
-            :external_url="project.external_url"
-          ></OtherProject>
-          <div class="linker">
-            <a href="#">See more</a>
-          </div>
-        </div>
-      </section>-->
     </div>
   </div>
 </template>
@@ -120,51 +88,6 @@ export default {
           { name: "swift", level: "★★★★★" }
         ]
       },
-      mainWorkDataList: [
-        {
-          title: "Limit",
-          sub_title: "Heart shaped lifespan timer",
-          workImageUrl: require("../assets/noimage.png"),
-          description:
-            "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-          tags: ["Swift", "Firebase", "Node.js"],
-          github_url: "",
-          appstore_url: "",
-          external_url: ""
-        },
-        {
-          title: "Limit",
-          sub_title: "Heart shaped lifespan timer",
-          workImageUrl: require("../assets/noimage.png"),
-          description:
-            "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-          tags: ["Swift", "Firebase", "Node.js"],
-          github_url: "",
-          appstore_url: "",
-          external_url: ""
-        },
-        {
-          title: "Limit",
-          sub_title: "Heart shaped lifespan timer",
-          workImageUrl: require("../assets/noimage.png"),
-          description:
-            "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-          tags: ["Swift", "Firebase", "Node.js"],
-          github_url: "",
-          appstore_url: "",
-          external_url: ""
-        }
-      ],
-      otherProjectDataList: [
-        {
-          title: "",
-          sub_title: "",
-          tags: [],
-          github_url: "",
-          appstore_url: "",
-          external_url: ""
-        }
-      ],
       postsDataList: [
         {
           title: "【Swift5】TableViewの再利用による...【iOS】",
@@ -338,6 +261,7 @@ button {
 
 #menu-left {
   display: flex;
+  align-self: center;
 }
 #menu-left img {
   width: 40px;
@@ -388,6 +312,10 @@ button {
   transition: all 0.3s;
 }
 
+#menu-right ul li #setting i {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 #sns-buttons {
   position: fixed;
   bottom: 20px;
@@ -410,6 +338,7 @@ button {
 }
 
 #sns-buttons ul li a {
+  position: relative;
   color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s;
 }
@@ -419,13 +348,49 @@ button {
   transition: all 0.3s;
 }
 
+#sns-buttons ul li a:after {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#sns-buttons ul li a:hover:after {
+  left: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+#sns-buttons ul li a#linkedin:after {
+  content: "Linkedin";
+}
+#sns-buttons ul li a#twitter:after {
+  content: "Twitter";
+}
+#sns-buttons ul li a#github:after {
+  content: "GitHub";
+}
+#sns-buttons ul li a#qiita:after {
+  content: "Qiita";
+}
+#sns-buttons ul li a#blog:after {
+  content: "Blog";
+}
+
 #container {
   width: 1200px;
-  margin: 120px auto;
+  margin: 0px auto;
 }
 
 #container section {
   max-width: 1200px;
+  margin: 120px auto;
+}
+
+#container section#top {
+  margin: 100px auto 50px auto;
 }
 
 #container section h2.content-title {
@@ -441,7 +406,8 @@ button {
 #container section h2.content-title:before {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   content: "";
   width: 100px;
   height: 6px;
@@ -510,33 +476,6 @@ button {
   color: rgba(30, 34, 41, 1);
   background: rgba(61, 219, 255, 1);
   transition: all 0.3s;
-}
-
-#work {
-  position: relative;
-  color: #fff;
-}
-
-#work:after {
-  position: absolute;
-  top: 50%;
-  left: -60%;
-  transform: rotate(5deg) translateY(-50%);
-  z-index: -10000;
-  content: "";
-  width: 150vw;
-  height: 100%;
-  padding: 50px 0;
-  background: #1a1a1a;
-}
-
-#work .linker a {
-  color: #fff;
-  border-color: #fff;
-}
-
-#main-works {
-  margin: 70px 0 150px 0;
 }
 </style>
 

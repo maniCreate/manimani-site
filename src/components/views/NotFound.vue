@@ -38,9 +38,4 @@ export default {
 #not-found .notes {
   margin: 20px 0 60px 0;
 }
-
-#not-found .content-title:before {
-  left: 50%;
-  transform: translateX(-50%);
-}
 </style>

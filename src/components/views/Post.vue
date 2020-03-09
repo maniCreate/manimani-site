@@ -1,15 +1,17 @@
 <!-- Mark: Article.vueへReplace -->
 <template>
-  <article class="post">
-    <img :src="this.image_url" />
-    <h3>{{ this.title }}</h3>
-    <p>{{ this.body }}</p>
-    <ul>
-      <li>{{ this.update }}</li>
-      <li>{{ this.ref_site }}</li>
-    </ul>
-    <a :href="this.post_url"></a>
-  </article>
+  <div>
+    <article class="post">
+      <img :src="this.image_url" />
+      <h3>{{ this.title }}</h3>
+      <p>{{ this.body }}</p>
+      <ul>
+        <li>{{ this.update }}</li>
+        <li>{{ this.ref_site }}</li>
+      </ul>
+      <a :href="this.post_url"></a>
+    </article>
+  </div>
 </template>
 
 <script>
@@ -32,12 +34,10 @@ export default {
   position: relative;
   width: 270px;
   height: 100%;
-  margin-bottom: 30px;
   padding: 10px;
   background: rgba(53, 60, 72, 1);
   box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.75);
   text-align: left;
-  opacity: 0;
   transition: all 0.3s;
 }
 

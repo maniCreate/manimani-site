@@ -1,10 +1,10 @@
 <template>
-  <article v-if="this.order % 2 == 0" class="main-work" >
+  <article v-if="this.order % 2 == 0" class="main-work">
     <div class="work-image">
       <img :src="this.workImageUrl" />
     </div>
     <div class="work-description">
-      <p>{{ this.sub_title }}</p>
+      <p class="work-sub-title">{{ this.sub_title }}</p>
       <h3 class="work-title">{{ this.title }}</h3>
       <p class="overview">{{ this.description }}</p>
       <div class="reference">
@@ -13,25 +13,29 @@
             <li v-for="(tag, key) in this.tags" :key="key">{{ tag }}</li>
           </ul>
         </div>
-        <div class="extarnal-link">
+        <div class="extarnal-links">
           <ul>
             <li>
-              <i class="fab fa-github"></i>
+              <a href>
+                <i class="fab fa-github"></i>
+              </a>
             </li>
             <li>
-              <i class="fab fa-app-store"></i>
+              <a href>
+                <i class="fab fa-app-store"></i>
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </article>
-  <article  v-else class="main-work main-work-odds">
+  <article v-else class="main-work main-work-odds">
     <div class="work-image">
       <img src="./../../assets/noimage.png" />
     </div>
     <div class="work-description">
-      <p>Heart shaped lifespan timer</p>
+      <p class="work-sub-title">Heart shaped lifespan timer</p>
       <h3 class="work-title">Limit</h3>
       <p
         class="overview"
@@ -44,13 +48,17 @@
             <li>Node.js</li>
           </ul>
         </div>
-        <div class="extarnal-link">
+        <div class="extarnal-links">
           <ul>
             <li>
-              <i class="fab fa-github"></i>
+              <a href>
+                <i class="fab fa-github"></i>
+              </a>
             </li>
             <li>
-              <i class="fab fa-app-store"></i>
+              <a href>
+                <i class="fab fa-app-store"></i>
+              </a>
             </li>
           </ul>
         </div>
@@ -71,38 +79,35 @@ export default {
     tags: Array,
     github_url: String,
     appstore_url: String,
-    external_url: String,
+    external_url: String
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style lang="scss" scoped>
+@for $i from 1 through 20 {
+  .main-work > *:nth-child(#{$i}) {
+    -webkit-animation: fade-in 0.8s forwards;
+    animation: fade-in 0.8s forwards;
+    animation-delay: #{130ms * $i};
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.main-work > * {
+  opacity: 0;
 }
 
 .main-work {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  margin-bottom: 160px;
+  margin: 50px 0 150px 0;
 }
 
 .work-image {
   position: relative;
-  min-width: 500px;
+  width: 500px;
   height: 310px;
   margin-right: 50px;
 }
@@ -115,14 +120,14 @@ a {
   content: "";
   width: 100%;
   height: 100%;
-  background: darkgray;
+  background: rgba(53, 60, 72, 0.8);
   transition: all 0.2s;
 }
 
 .work-image:hover:after {
   bottom: -18px;
   right: -18px;
-  background: #fff;
+  background: #00aed9;
   transition: all 0.2s;
 }
 
@@ -140,6 +145,7 @@ a {
 }
 
 .work-description {
+  width: 460px;
   text-align: left;
 }
 
@@ -148,16 +154,21 @@ a {
   margin: 5px 0;
 }
 
+.work-sub-title {
+  font-weight: 500;
+  color: rgba(61, 219, 255, 1);
+}
+
 .overview {
   display: inline-block;
   padding: 20px;
   width: calc(100% + 150px);
   height: 130px;
   transform: translateX(-150px);
-  background: #fff;
-  color: gray;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(53, 60, 72, 1);
   font-size: 0.75em;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.75);
   line-height: 1.9em;
 }
 
@@ -181,15 +192,21 @@ a {
   font-style: italic;
   margin-right: 20px;
   font-size: 0.9em;
-  font-weight: 100;
-  font-family: milibus;
 }
 
-.reference > .extarnal-link > ul > li {
+.reference > .extarnal-links > ul > li {
   margin-left: 20px;
   font-size: 1.4em;
 }
 
+.reference > .extarnal-links > ul > li a {
+  transition: all 0.3s;
+}
+
+.reference > .extarnal-links > ul > li a:hover {
+  color: rgba(61, 219, 255, 1);
+  transition: all 0.3s;
+}
 
 .main-work-odds {
   flex-direction: row-reverse;

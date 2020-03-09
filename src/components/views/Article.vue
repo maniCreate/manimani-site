@@ -100,11 +100,6 @@ export default {
   }
 }
 
-#article .content-title:before {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 #article #posts {
   display: flex;
   width: 960px;
@@ -113,4 +108,8 @@ export default {
   margin: 30px auto;
 }
 
+#article #posts > * {
+  opacity: 0;
+  margin-bottom: 30px;
+}
 </style>
